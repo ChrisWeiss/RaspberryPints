@@ -13,3 +13,10 @@ void sendKickedMsg(uint8_t addr, int pinNum) {
   Serial.print(";");
   Serial.println(pinNum);
 }
+
+void sendTemp(uint8_t addr, unsigned int sensorTemp) {
+  Serial.print("T;");
+  Serial.print(addr);
+  Serial.print(";");
+  Serial.print(sensorTemp);  
+  }

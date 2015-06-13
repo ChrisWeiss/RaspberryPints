@@ -1,3 +1,12 @@
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+// Which port is the temp sensor plugged in to?
+#define TEMP_SENSOR_PORT 2
+OneWire oneWire(TEMP_SENSOR_PORT);
+DallasTemperature sensors(&oneWire);
+
+
 //This line is the number of flow sensors connected.
 const uint8_t numSensors = 4;
 //This line initializes an array with the pins connected to the flow sensors
@@ -5,6 +14,7 @@ uint8_t pulsePin[] = {8,9,10,11};
 //number of milliseconds to wait after pour before sending message
 unsigned int pourMsgDelay = 300;
 
+unsigned int sensorTemp;
 unsigned int pulseCount[numSensors];
 unsigned int kickedCount[numSensors];
 unsigned long nowTime;
@@ -28,6 +38,7 @@ void setup() {
     kickedCount[i] = 0;
     lastPinState[i] = digitalRead(pulsePin[i]);
   }
+    sensors.begin();
 }
 
 void loop() {
@@ -39,6 +50,7 @@ void loop() {
     lastPourTime = 0;
     checkPours();
     checkKicks();
+    checkTemps();
   }
 }
 
@@ -86,3 +98,10 @@ void checkKicks() {
     }
   }
 }
+
+void checkTemps() {
+  sensors.requestTemperatures(); 
+  sensorTemp = sensors.getTempCByIndex(0);
+  sendTemp(0, sensorTemp);
+}
+  
