@@ -69,6 +69,11 @@ try:
 			#cur = con.cursor()
 			#cur.execute("INSERT INTO pourData(count,pin,reading) values (%s,%s,%s)", (0,MCP_PIN,reading[0]))
 			#con.commit()
+		elif ( reading[0] == "T" ):
+			MCP_ADDR = int(reading[1])
+			MCP_TEMP = int(reading[2])
+			path = '/var/www/includes/temp.php'
+			subprocess.call([php], path, MCP_TEMP)
 		else:
 			print "Unknown message: "+msg
 finally:

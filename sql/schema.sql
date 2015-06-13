@@ -801,6 +801,20 @@ INSERT INTO srmRgb ( srm, rgb, createdDate, modifiedDate ) VALUES
 ( '39.9','3,4,3', NOW(), NOW() ),
 ( '40.0','3,4,3', NOW(), NOW() );
 
+
+--
+-- Table structure for table `temp`
+--
+
+CREATE TABLE IF NOT EXISTS `temp` (
+	`id` int(11) NOT NULL AUTO_INCREMENT,
+    `temp` int(6) NOT NULL,
+	`createdDate` TIMESTAMP NULL,
+	`modifiedDate` TIMESTAMP NULL,
+	
+	PRIMARY KEY (`id`)
+) ENGINE=InnoDB	DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
