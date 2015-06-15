@@ -46,7 +46,7 @@ include 'header.php';
 		</div>
 		<div class="contentbox">
 		<a name="columns"></a> 
-		<h2>Show/Hide Columns</h2><br /> 
+		<h2>Display Options</h2><br /> 
 		<form method="post" action="update_column.php">
 			<?php
 				foreach($result as $row) {

@@ -34,7 +34,7 @@
 		<li>
 		<a class="expanded heading">Personalization</a>
 		<ul class="navigation">
-			<li><a href="personalize.php#columns">Show/Hide Columns</a></li>
+			<li><a href="personalize.php#columns">Display Options</a></li>
 			<li><a href="personalize.php#header">Headers</a></li>
 			<li><a href="personalize.php#logo">Brewery Logo</a></li>
 			<li><a href="personalize.php#background">Background Image</a></li>
